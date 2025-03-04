@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crossing to Equator Bar - Owner Management</title>
+    <link rel="stylesheet" href="css/owner.css">
+</head>
+<body>
+    <div class="container">
+        <div class="product-management">
+            <h2>Product Management</h2>
+            
+            <div class="category-selector">
+                <button class="category-btn active" data-category="wines">Wines</button>
+                <button class="category-btn" data-category="beers">Beers</button>
+                <button class="category-btn" data-category="cocktails">Cocktails</button>
+                <button class="category-btn" data-category="foods">Foods</button>
+            </div>
+
+            <!-- Low stock filter -->
+            <div class="stock-filter">
+                <label>
+                    <input type="checkbox" id="showLowStockOnly">
+                    Show low stock items only
+                </label>
+                <span class="low-stock-indicator">Items with less than 5 in stock</span>
+            </div>
+
+            <div class="product-list" id="productList">
+                <!-- Dynamically load product list -->
+            </div>
+
+            <div class="add-product-form">
+                <h3>Add New Product</h3>
+                <select id="newProductCategory">
+                    <option value="wines">Wine</option>
+                    <option value="beers">Beer</option>
+                    <option value="cocktails">Cocktail</option>
+                    <option value="foods">Food</option>
+                </select>
+                <input type="text" id="newProductName" placeholder="Product Name">
+                <input type="number" id="newProductPrice" placeholder="Price">
+                <textarea id="newProductDescription" placeholder="Product Description"></textarea>
+                <input type="text" id="newProductAllergens" placeholder="Allergens (comma separated)">
+                <div class="stock-input-wrapper">
+                    <input type="number" id="newProductStock" placeholder="Initial Stock">
+                    <div class="stock-info">Items with less than 5 in stock will be marked as low stock</div>
+                </div>
+                <button id="addProductBtn">Add Product</button>
+            </div>
+        </div>
+
+        <div class="financial-overview">
+            <h2>Financial Overview</h2>
+            <div class="sales-summary">
+                <div class="summary-card">
+                    <h3>Total Revenue</h3>
+                    <p id="totalRevenue">$0</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Total Products</h3>
+                    <p id="totalProducts">0</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Low Stock Items</h3>
+                    <p id="lowStockItems">0</p>
+                    <div class="low-stock-help">Less than 5 in stock</div>
+                </div>
+            </div>
+
+            <div class="sales-chart">
+                <h3>Monthly Sales</h3>
+                <canvas id="salesChart"></canvas>
+            </div>
+            
+            <div class="inventory-alerts">
+                <h3>Inventory Alerts</h3>
+                <div id="inventoryAlertsList">
+                    <!-- Dynamically populate inventory alerts -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit product modal box -->
+    <div id="editProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Edit Product</h3>
+            <input type="text" id="editProductName" placeholder="Product Name">
+            <input type="number" id="editProductPrice" placeholder="Price">
+            <textarea id="editProductDescription" placeholder="Product Description"></textarea>
+            <input type="text" id="editProductAllergens" placeholder="Allergens">
+            <div class="stock-input-wrapper">
+                <input type="number" id="editProductStock" placeholder="Stock">
+                <div class="stock-warning-info">Low stock threshold: 5 items</div>
+            </div>
+            <button id="saveProductChangesBtn">Save Changes</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/models/product.js"></script>
+    <script src="js/models/inventoryManager.js"></script>
+    <script src="js/controllers/ownerController.js"></script>
+    <script src="js/views/ownerView.js"></script>
+    
+    <!-- Add stock filtering functionality -->
+    <script>
+        $(document).ready(function() {
+            // Low stock filter functionality
+            $('#showLowStockOnly').change(function() {
+                if ($(this).is(':checked')) {
+                    $('.product-item').not('.low-stock').hide();
+                } else {
+                    $('.product-item').show();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

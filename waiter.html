@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crossing to Equator Bar - Waiter</title>
+    <link rel="stylesheet" href="css/waiter.css">
+</head>
+<body>
+    <div class="container">
+        <div class="inventory-section">
+            <h2>Product Inventory</h2>
+            <table id="inventoryTable">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryList">
+                    <!-- Dynamically loading inventory -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="order-management">
+            <h2>Order Management</h2>
+            <div class="table-selector">
+                <label>Select Table:</label>
+                <select id="tableSelect">
+                    <option>Table 1</option>
+                    <option>Table 2</option>
+                    <option>Table 3</option>
+                    <option>Table 4</option>
+                    <option>Table 5</option>
+                </select>
+            </div>
+
+            <div id="tableOrderDetails">
+                <!-- Specific table order details -->
+            </div>
+        </div>
+
+        <div class="price-adjustment">
+            <h2>Price Adjustment</h2>
+            <div class="adjustment-form">
+                <select id="productSelect">
+                    <!-- Dynamically load products -->
+                </select>
+                <input type="number" id="newPrice" placeholder="New Price">
+                <select id="adjustmentReason">
+                    <option>Compensation</option>
+                    <option>Special Offer</option>
+                    <option>Management Decision</option>
+                </select>
+                <textarea id="adjustmentComment" placeholder="Reason for adjustment"></textarea>
+                <button id="adjustPriceBtn">Adjust Price</button>
+            </div>
+        </div>
+
+        <div class="notification-center">
+            <h2>Notifications</h2>
+            <div id="notificationList">
+                <!-- Notification List -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Detailed Product Actions -->
+    <div id="productActionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalProductName"></h3>
+            <div id="modalProductActions">
+                <!-- Dynamically load product operations -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/models/product.js"></script>
+    <script src="js/models/inventoryManager.js"></script>
+    <script src="js/controllers/waiterController.js"></script>
+    <script src="js/views/waiterView.js"></script>
+</body>
+</html>

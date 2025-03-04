@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossing to Equator Bar - Customer</title>
+    <link rel="stylesheet" href="css/customer.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left menu area -->
+        <div class="menu-section">
+            <div class="category-buttons">
+                <button id="allBtn" class="active">All Products</button>
+                <button id="winesBtn">Wines</button>
+                <button id="beersBtn">Beers</button>
+                <button id="cocktailsBtn">Cocktails</button>
+                <button id="foodBtn">Food</button>
+            </div>
+
+            <div class="search-filter">
+                <input type="text" id="productSearch" placeholder="Search products...">
+                
+                <div class="allergen-filter">
+                    <label>Allergen Filter:</label>
+                    <select id="allergenSelect" multiple>
+                        <option value="gluten">Gluten</option>
+                        <option value="nuts">Nuts</option>
+                        <option value="lactose">Lactose</option>
+                        <option value="sulfites">Sulfites</option>
+                        <option value="eggs">Eggs</option>
+                        <option value="fish">Fish</option>
+                        <option value="milk">Milk</option>
+                        <option value="coconut">Coconut</option>
+                    </select>
+                </div>
+
+                <div class="alcohol-filter">
+                    <label>Alcohol Content: <span id="alcoholValue">50%</span></label>
+                    <input type="range" id="alcoholRange" min="0" max="100" value="50">
+                </div>
+                
+                <div class="tannin-filter" id="tanninFilterContainer">
+                    <label>Tannin Level: <span id="tanninValue">5</span>/10</label>
+                    <input type="range" id="tanninRange" min="0" max="10" value="5">
+                </div>
+            </div>
+
+            <p class="drag-instruction">Click items to view details, or drag and drop to the right to add to order</p>
+
+            <div id="productList" class="product-list">
+                <!-- Dynamically loaded product list -->
+                <div class="loading">Loading products...</div>
+            </div>
+        </div>
+
+        <!-- Right area -->
+        <div class="right-section">
+            <!-- VIP login system -->
+            <div class="vip-login">
+                <h3>VIP Login</h3>
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button id="loginBtn">Login</button>
+                <div id="loginStatus"></div>
+            </div>
+
+            <!-- Order area -->
+            <div class="order-section">
+                <h3>Your Order <small>(Drop items here)</small></h3>
+                <div id="orderList" class="order-list">
+                    <!-- Dynamically loaded orders -->
+                    <p class="empty-order-message">Drag products from the left to add to your order</p>
+                </div>
+                <div class="order-summary">
+                    <p>Total: $<span id="totalPrice">0.00</span></p>
+                    <button id="billSplitBtn">Split Bill</button>
+                    <button id="checkoutBtn">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product details modal -->
+    <div id="productDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="productDetails"></div>
+        </div>
+    </div>
+
+    <!-- Bill splitting modal -->
+    <div id="billSplitModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Bill Splitting</h3>
+            <input type="number" id="participantCount" placeholder="Number of participants" min="1">
+            <button id="startSplitBtn">Start Split</button>
+            <div id="splitParticipants"></div>
+        </div>
+    </div>
+
+    <!-- Include necessary JS files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/models/product.js"></script>
+    <script src="js/models/user.js"></script>
+    <script src="js/views/customerView.js"></script>
+    <script src="js/controllers/customerController.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Category button highlighting
+            $('.category-buttons button').click(function() {
+                $('.category-buttons button').removeClass('active');
+                $(this).addClass('active');
+            });
+            
+            // Modal close button
+            $('.close').click(function() {
+                $(this).closest('.modal').hide();
+            });
+            
+            // Click outside modal to close
+            $('.modal').click(function(event) {
+                if ($(event.target).is('.modal')) {
+                    $(this).hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
