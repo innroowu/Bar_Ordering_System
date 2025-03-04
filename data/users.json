@@ -1,0 +1,19 @@
+{
+    "vipUsers": [
+        {
+            "username": "user1",
+            "password": "pass1",
+            "name": "John Doe"
+        },
+        {
+            "username": "user2", 
+            "password": "pass2",
+            "name": "Jane Smith"
+        },
+        {
+            "username": "user3",
+            "password": "pass3", 
+            "name": "Mike Johnson"
+        }
+    ]
+}
