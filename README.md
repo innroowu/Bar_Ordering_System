@@ -1,5 +1,6 @@
 # Bar_Ordering_System
-This repository is a project of User Interface Programming course
+This repository is a project of User Interface Programming course.
+It is more convenient to use the live server of visual studio to start the bar ordering system.
 
 ## File Organization
 ```
