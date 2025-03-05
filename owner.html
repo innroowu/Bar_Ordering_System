@@ -51,7 +51,10 @@
         </div>
 
         <div class="financial-overview">
-            <h2>Financial Overview</h2>
+            <div class="owner-header">
+                <h2>Financial Overview</h2>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
             <div class="sales-summary">
                 <div class="summary-card">
                     <h3>Total Revenue</h3>
@@ -66,11 +69,6 @@
                     <p id="lowStockItems">0</p>
                     <div class="low-stock-help">Less than 5 in stock</div>
                 </div>
-            </div>
-
-            <div class="sales-chart">
-                <h3>Monthly Sales</h3>
-                <canvas id="salesChart"></canvas>
             </div>
             
             <div class="inventory-alerts">
@@ -116,6 +114,26 @@
                 } else {
                     $('.product-item').show();
                 }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            console.log("Debug script loaded");
+            
+            // Check if the logout button exists
+            if ($('#logoutBtn').length) {
+                console.log("Logout button found in DOM");
+            } else {
+                console.error("Logout button NOT found in DOM");
+            }
+            
+            // Add a direct event handler
+            $(document).on('click', '#logoutBtn', function() {
+                console.log("Logout clicked (from direct handler)");
+                sessionStorage.removeItem('ownerLoggedIn');
+                sessionStorage.removeItem('ownerName');
+                window.location.href = 'index.html';
             });
         });
     </script>
