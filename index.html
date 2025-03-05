@@ -18,5 +18,32 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/controllers/indexController.js"></script>
     <script src="js/views/indexView.js"></script>
+
+    <div id="ownerLoginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Owner Login</h3>
+            <div class="login-form">
+                <input type="text" id="ownerUsername" placeholder="Username">
+                <input type="password" id="ownerPassword" placeholder="Password">
+                <div id="ownerLoginError" style="color: red; display: none;">Invalid username or password</div>
+                <button id="ownerLoginBtn">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="waiterLoginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Waiter Login</h3>
+            <div class="login-form">
+                <input type="text" id="waiterUsername" placeholder="Username">
+                <input type="password" id="waiterPassword" placeholder="Password">
+                <div id="waiterLoginError" style="color: red; display: none;">Invalid username or password</div>
+                <button id="waiterLoginBtn">Login</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
