@@ -176,3 +176,28 @@ body {
 .product-item.hidden {
     opacity: 0.5;
 }
+
+
+/* for logout */
+.owner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    padding: 8px 15px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
