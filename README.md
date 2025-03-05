@@ -32,9 +32,9 @@ Bar_Ordering_System
        |    ├─ ownerView.js
        |    └─ waiterView.js
        └─ controllers/
-            ├─ customerController
-            ├─ indexController
-            ├─ ownerController
-            └─ waiterController
+            ├─ customerController.js
+            ├─ indexController.js
+            ├─ ownerController.js
+            └─ waiterController.js
 
 ```
