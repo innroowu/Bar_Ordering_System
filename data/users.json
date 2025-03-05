@@ -16,7 +16,7 @@
             "name": "Mike Johnson"
         }
     ],
-        "ownerUsers": [
+    "ownerUsers": [
         {
             "username": "admin",
             "password": "admin123",
