@@ -340,6 +340,27 @@
     cursor: move;
 }
 
+/* Bill Split button */
+#confirmSplitSection {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#confirmSplitBtn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#confirmSplitBtn:hover {
+    background-color: #45a049;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .container {
