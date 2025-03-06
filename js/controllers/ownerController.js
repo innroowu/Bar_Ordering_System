@@ -35,7 +35,7 @@ $(document).ready(function() {
     // Load product list
     async function loadProducts(category) {
         try {
-            const response = await fetch(`/data/${category}.json`);
+            const response = await fetch(`data/${category}.json`);
             const products = await response.json();
             renderProductList(products[category]);
             updateFinancialOverview(products[category]);
