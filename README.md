@@ -40,7 +40,7 @@ Bar_Ordering_System
 
 ```
 
-# Collaborators/Group members
+## Collaborators/Group members
 - Yin-Ju Wu
 - Yuxuan Niu
 - Rahul Reddy Tikkavarapu
