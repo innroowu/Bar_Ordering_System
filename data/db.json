@@ -1,0 +1,618 @@
+{
+  "wines": [
+    {
+      "id": "wine_001",
+      "name": "Château Margaux",
+      "price": 450,
+      "category": "wines",
+      "details": {
+        "description": "A prestigious Bordeaux red wine with complex flavors",
+        "allergens": [
+          "sulfites"
+        ],
+        "alcoholContent": 53,
+        "tannins": 7,
+        "initialStock": 10
+      },
+      "hidden": false
+    },
+    {
+      "id": "wine_002",
+      "name": "Opus One",
+      "price": 380,
+      "category": "wines",
+      "details": {
+        "description": "Iconic Napa Valley Bordeaux-style red blend",
+        "allergens": [
+          "sulfites"
+        ],
+        "alcoholContent": 50,
+        "tannins": 6,
+        "initialStock": 9
+      }
+    },
+    {
+      "id": "wine_003",
+      "name": "Pinot Noir Reserve",
+      "price": 95,
+      "category": "wines",
+      "details": {
+        "description": "Elegant and smooth Oregon Pinot Noir",
+        "allergens": [
+          "sulfites"
+        ],
+        "alcoholContent": 93,
+        "tannins": 4,
+        "initialStock": 9
+      },
+      "hidden": false
+    },
+    {
+      "id": "wine_004",
+      "name": "Chardonnay Classic",
+      "price": 65,
+      "category": "wines",
+      "details": {
+        "description": "Crisp California Chardonnay with oak notes",
+        "allergens": [
+          "sulfites"
+        ],
+        "alcoholContent": 8,
+        "tannins": 2,
+        "initialStock": 8
+      }
+    },
+    {
+      "id": "wine_005",
+      "name": "Barolo Riserva",
+      "price": 220,
+      "category": "wines",
+      "details": {
+        "description": "Powerful Italian red wine from Piedmont",
+        "allergens": [
+          "sulfites"
+        ],
+        "alcoholContent": 14.5,
+        "tannins": 8,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "wine_006",
+      "name": "Sauvignon Blanc",
+      "price": 55,
+      "category": "wines",
+      "details": {
+        "description": "Crisp New Zealand white wine",
+        "allergens": [
+          "sulfites"
+        ],
+        "alcoholContent": 12.5,
+        "tannins": 1,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "wine_007",
+      "name": "Malbec Reserva",
+      "price": 75,
+      "category": "wines",
+      "details": {
+        "description": "Rich Argentinian red wine with dark fruit notes",
+        "allergens": [
+          "sulfites"
+        ],
+        "alcoholContent": 65,
+        "tannins": 6,
+        "initialStock": 9
+      },
+      "hidden": false
+    },
+    {
+      "id": "wine_008",
+      "name": "Riesling Late Harvest",
+      "price": 85,
+      "category": "wines",
+      "details": {
+        "description": "Sweet German white wine with fruity profile",
+        "allergens": [
+          "sulfites"
+        ],
+        "alcoholContent": 37,
+        "tannins": 1,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "wine_009",
+      "name": "Rosé Provence",
+      "price": 60,
+      "category": "wines",
+      "details": {
+        "description": "Light and refreshing French rosé wine",
+        "allergens": [
+          "sulfites"
+        ],
+        "alcoholContent": 70,
+        "tannins": 2,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "wine_010",
+      "name": "Cabernet Sauvignon",
+      "price": 120,
+      "category": "wines",
+      "details": {
+        "description": "Bold California red wine with deep complexity",
+        "allergens": [
+          "sulfites"
+        ],
+        "alcoholContent": 40,
+        "tannins": 7,
+        "initialStock": 10
+      }
+    }
+  ],
+  "beers": [
+    {
+      "id": "beer_001",
+      "name": "Craft IPA",
+      "price": 9,
+      "category": "beers",
+      "details": {
+        "description": "Hoppy American-style India Pale Ale",
+        "allergens": [
+          "gluten"
+        ],
+        "initialStock": 6,
+        "alcoholContent": 3,
+        "tannins": 0
+      }
+    },
+    {
+      "id": "beer_002",
+      "name": "Belgian Trappist Ale",
+      "price": 12,
+      "category": "beers",
+      "details": {
+        "description": "Strong, complex Trappist monk-brewed ale",
+        "allergens": [
+          "gluten"
+        ],
+        "alcoholContent": 19,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "beer_003",
+      "name": "German Wheat Beer",
+      "price": 7,
+      "category": "beers",
+      "details": {
+        "description": "Refreshing Bavarian-style wheat beer",
+        "allergens": [
+          "gluten"
+        ],
+        "alcoholContent": 15.2,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "beer_004",
+      "name": "Stout Dark Ale",
+      "price": 9,
+      "category": "beers",
+      "details": {
+        "description": "Rich, creamy Irish-style stout",
+        "allergens": [
+          "gluten"
+        ],
+        "alcoholContent": 4.8,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "beer_005",
+      "name": "Japanese Rice Lager",
+      "price": 6,
+      "category": "beers",
+      "details": {
+        "description": "Light and crisp Asian-style lager",
+        "allergens": [
+          "gluten"
+        ],
+        "alcoholContent": 4.5,
+        "initialStock": 9,
+        "tannins": 0
+      }
+    },
+    {
+      "id": "beer_006",
+      "name": "Sour Fruit Ale",
+      "price": 10,
+      "category": "beers",
+      "details": {
+        "description": "Tart and fruity craft sour beer",
+        "allergens": [
+          "gluten"
+        ],
+        "alcoholContent": 45.7,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "beer_007",
+      "name": "Pilsner Premium",
+      "price": 7,
+      "category": "beers",
+      "details": {
+        "description": "Classic Czech-style pilsner",
+        "allergens": [
+          "gluten"
+        ],
+        "alcoholContent": 35,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "beer_008",
+      "name": "Amber Ale",
+      "price": 8,
+      "category": "beers",
+      "details": {
+        "description": "Balanced malty and hoppy American amber ale",
+        "allergens": [
+          "gluten"
+        ],
+        "alcoholContent": 57.5,
+        "initialStock": 10
+      },
+      "hidden": false
+    },
+    {
+      "id": "beer_009",
+      "name": "Porter Dark Beer",
+      "price": 9,
+      "category": "beers",
+      "details": {
+        "description": "Robust and smooth dark porter",
+        "allergens": [
+          "gluten"
+        ],
+        "alcoholContent": 62,
+        "initialStock": 3
+      }
+    },
+    {
+      "id": "beer_010",
+      "name": "Pale Ale Classic",
+      "price": 7,
+      "category": "beers",
+      "details": {
+        "description": "Light and hoppy traditional pale ale",
+        "allergens": [
+          "gluten"
+        ],
+        "alcoholContent": 5.2,
+        "initialStock": 10
+      },
+      "hidden": false
+    },
+    {
+      "id": "beers1741614827029",
+      "name": "heine",
+      "price": 9,
+      "category": "beers",
+      "details": {
+        "description": "lala",
+        "allergens": [
+          "gluten"
+        ],
+        "initialStock": 0,
+        "alcoholContent": 0,
+        "tannins": 0
+      },
+      "hidden": false
+    }
+  ],
+  "cocktails": [
+    {
+      "id": "cocktail_001",
+      "name": "Martini Classic",
+      "price": 15,
+      "category": "cocktails",
+      "details": {
+        "description": "Elegant gin or vodka martini with olive",
+        "allergens": [],
+        "alcoholContent": 70,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "cocktail_002",
+      "name": "Mojito",
+      "price": 12,
+      "category": "cocktails",
+      "details": {
+        "description": "Refreshing Cuban rum cocktail with mint",
+        "allergens": [],
+        "alcoholContent": 35,
+        "initialStock": 10
+      },
+      "hidden": false
+    },
+    {
+      "id": "cocktail_003",
+      "name": "Old Fashioned",
+      "price": 16,
+      "category": "cocktails",
+      "details": {
+        "description": "Classic whiskey cocktail with bitters",
+        "allergens": [],
+        "alcoholContent": 45,
+        "initialStock": 15
+      }
+    },
+    {
+      "id": "cocktail_004",
+      "name": "Margarita",
+      "price": 14,
+      "category": "cocktails",
+      "details": {
+        "description": "Tequila-based cocktail with lime and salt",
+        "allergens": [],
+        "alcoholContent": 20,
+        "initialStock": 15
+      }
+    },
+    {
+      "id": "cocktail_005",
+      "name": "Negroni",
+      "price": 15,
+      "category": "cocktails",
+      "details": {
+        "description": "Italian cocktail with gin, vermouth, and Campari",
+        "allergens": [],
+        "alcoholContent": 45,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "cocktail_006",
+      "name": "Cosmopolitan",
+      "price": 13,
+      "category": "cocktails",
+      "details": {
+        "description": "Vodka-based cocktail with cranberry juice",
+        "allergens": [],
+        "alcoholContent": 65,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "cocktail_007",
+      "name": "Piña Colada",
+      "price": 12,
+      "category": "cocktails",
+      "details": {
+        "description": "Tropical rum cocktail with coconut and pineapple",
+        "allergens": [
+          "coconut"
+        ],
+        "alcoholContent": 30,
+        "initialStock": 15
+      }
+    },
+    {
+      "id": "cocktail_008",
+      "name": "Manhattan",
+      "price": 16,
+      "category": "cocktails",
+      "details": {
+        "description": "Classic whiskey cocktail with sweet vermouth",
+        "allergens": [],
+        "alcoholContent": 45,
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "cocktail_009",
+      "name": "Daiquiri",
+      "price": 11,
+      "category": "cocktails",
+      "details": {
+        "description": "Simple rum cocktail with lime juice",
+        "allergens": [],
+        "alcoholContent": 55,
+        "initialStock": 15
+      }
+    },
+    {
+      "id": "cocktail_010",
+      "name": "Moscow Mule",
+      "price": 13,
+      "category": "cocktails",
+      "details": {
+        "description": "Vodka cocktail with ginger beer and lime",
+        "allergens": [],
+        "alcoholContent": 35,
+        "initialStock": 10
+      }
+    }
+  ],
+  "foods": [
+    {
+      "id": "food_001",
+      "name": "Chicken Wings",
+      "price": 12,
+      "category": "foods",
+      "details": {
+        "description": "Crispy buffalo-style chicken wings",
+        "allergens": [
+          "gluten"
+        ],
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "food_002",
+      "name": "Cheese Platter",
+      "price": 18,
+      "category": "foods",
+      "details": {
+        "description": "Assorted international cheese selection",
+        "allergens": [
+          "lactose",
+          "milk"
+        ],
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "food_003",
+      "name": "Bruschetta",
+      "price": 10,
+      "category": "foods",
+      "details": {
+        "description": "Classic Italian tomato and basil bruschetta",
+        "allergens": [
+          "gluten"
+        ],
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "food_004",
+      "name": "Nachos",
+      "price": 14,
+      "category": "foods",
+      "details": {
+        "description": "Loaded nachos with cheese and salsa",
+        "allergens": [
+          "lactose",
+          "gluten"
+        ],
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "food_005",
+      "name": "Caesar Salad",
+      "price": 11,
+      "category": "foods",
+      "details": {
+        "description": "Traditional Caesar salad with grilled chicken",
+        "allergens": [
+          "lactose",
+          "eggs"
+        ],
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "food_006",
+      "name": "Charcuterie Board",
+      "price": 22,
+      "category": "foods",
+      "details": {
+        "description": "Premium selection of cured meats and accompaniments",
+        "allergens": [
+          "nuts"
+        ],
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "food_007",
+      "name": "Fish Tacos",
+      "price": 15,
+      "category": "foods",
+      "details": {
+        "description": "Fresh grilled fish tacos with slaw",
+        "allergens": [
+          "gluten",
+          "fish"
+        ],
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "food_008",
+      "name": "Vegetable Spring Rolls",
+      "price": 9,
+      "category": "foods",
+      "details": {
+        "description": "Crispy vegetable spring rolls with dipping sauce",
+        "allergens": [
+          "gluten"
+        ],
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "food_009",
+      "name": "BBQ Sliders",
+      "price": 13,
+      "category": "foods",
+      "details": {
+        "description": "Mini pulled pork BBQ sliders",
+        "allergens": [
+          "gluten"
+        ],
+        "initialStock": 10
+      }
+    },
+    {
+      "id": "food_010",
+      "name": "Seafood Ceviche",
+      "price": 18,
+      "category": "foods",
+      "details": {
+        "description": "Fresh fish marinated in citrus with red onion and cilantro",
+        "allergens": [
+          "fish"
+        ],
+        "initialStock": 10
+      }
+    }
+  ],
+  "users": {
+    "vipUsers": [
+      {
+        "username": "user1",
+        "password": "pass1",
+        "name": "John Doe"
+      },
+      {
+        "username": "user2",
+        "password": "pass2",
+        "name": "Jane Smith"
+      },
+      {
+        "username": "user3",
+        "password": "pass3",
+        "name": "Mike Johnson"
+      }
+    ],
+    "ownerUsers": [
+      {
+        "username": "admin",
+        "password": "admin123",
+        "name": "Bar Owner"
+      }
+    ],
+    "waiterUsers": [
+      {
+        "username": "waiter1",
+        "password": "waiter123",
+        "name": "Sam Server"
+      },
+      {
+        "username": "waiter2",
+        "password": "waiter456",
+        "name": "Lisa Server"
+      }
+    ]
+  }
+}

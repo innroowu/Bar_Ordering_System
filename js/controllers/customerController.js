@@ -53,14 +53,13 @@ $(document).ready(function() {
                 console.log(`Loading ${category} category...`);
                 
                 try {
-                    const response = await fetch(`data/${category}.json`);
+                    const response = await fetch(`http://localhost:3000/${category}`);
                     if (!response.ok) {
                         console.error(`Unable to load ${category}: HTTP ${response.status}`);
                         continue;
                     }
                     
-                    const data = await response.json();
-                    const products = data[category] || [];
+                    const products = await response.json();
                     
                     // Convert to Product objects and add to total product list
                     const productObjects = products.map(item => 
@@ -69,7 +68,8 @@ $(document).ready(function() {
                             item.name, 
                             item.price, 
                             item.category, 
-                            item.details
+                            item.details,
+                            item.hidden || false
                         )
                     );
                     
@@ -309,6 +309,7 @@ $(document).ready(function() {
         // Clear the order
         $('#orderList').empty();
         updateTotal();
+        initializeProducts();
     });
 
     // Initialize application

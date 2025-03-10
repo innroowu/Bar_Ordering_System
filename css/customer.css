@@ -385,3 +385,20 @@
         width: 90%;
     }
 }
+
+.product-item.out-of-stock {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.product-item .stock-info {
+    color: red;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+
+.remove-product {
+    opacity: 0.5;
+    filter: blur(2px);
+}
