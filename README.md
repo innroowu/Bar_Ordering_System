@@ -16,12 +16,12 @@ Bar_Ordering_System
     |   ├─ owner.css
     |   └─ waiter.css
     ├─ data/
-    |   ├─ db.json
-    |   ├─ beers.txt: beers database
-    |   ├─ cocktails.txt: cocktails database
-    |   ├─ foods.txt: foods database
-    |   ├─ users.txt: All the user accounts store in this file.
-    |   └─ wines.txt: wines database
+    |   ├─ beers.json
+    |   ├─ cocktails.json
+    |   ├─ foods.json
+    |   ├─ special.json
+    |   ├─ users.json
+    |   └─ wins.json
     └─ js/
        ├─ models/
        |    ├─ billSplit.js
