@@ -1,0 +1,124 @@
+{
+    "cocktails": [
+      {
+        "id": "cocktail_001",
+        "name": "Martini Classic",
+        "price": 15,
+        "category": "cocktails",
+        "details": {
+          "description": "Elegant gin or vodka martini with olive",
+          "allergens": [],
+          "alcoholContent": 70,
+          "initialStock": 10
+        }
+      },
+      {
+        "id": "cocktail_002",
+        "name": "Mojito",
+        "price": 12,
+        "category": "cocktails",
+        "details": {
+          "description": "Refreshing Cuban rum cocktail with mint",
+          "allergens": [],
+          "alcoholContent": 35,
+          "initialStock": 10
+        }
+      },
+      {
+        "id": "cocktail_003",
+        "name": "Old Fashioned",
+        "price": 16,
+        "category": "cocktails",
+        "details": {
+          "description": "Classic whiskey cocktail with bitters",
+          "allergens": [],
+          "alcoholContent": 45,
+          "initialStock": 15
+        }
+      },
+      {
+        "id": "cocktail_004",
+        "name": "Margarita",
+        "price": 14,
+        "category": "cocktails",
+        "details": {
+          "description": "Tequila-based cocktail with lime and salt",
+          "allergens": [],
+          "alcoholContent": 20,
+          "initialStock": 15
+        }
+      },
+      {
+        "id": "cocktail_005",
+        "name": "Negroni",
+        "price": 15,
+        "category": "cocktails",
+        "details": {
+          "description": "Italian cocktail with gin, vermouth, and Campari",
+          "allergens": [],
+          "alcoholContent": 45,
+          "initialStock": 10
+        }
+      },
+      {
+        "id": "cocktail_006",
+        "name": "Cosmopolitan",
+        "price": 13,
+        "category": "cocktails",
+        "details": {
+          "description": "Vodka-based cocktail with cranberry juice",
+          "allergens": [],
+          "alcoholContent": 65,
+          "initialStock": 10
+        }
+      },
+      {
+        "id": "cocktail_007",
+        "name": "Piña Colada",
+        "price": 12,
+        "category": "cocktails",
+        "details": {
+          "description": "Tropical rum cocktail with coconut and pineapple",
+          "allergens": ["coconut"],
+          "alcoholContent": 30,
+          "initialStock": 15
+        }
+      },
+      {
+        "id": "cocktail_008",
+        "name": "Manhattan",
+        "price": 16,
+        "category": "cocktails",
+        "details": {
+          "description": "Classic whiskey cocktail with sweet vermouth",
+          "allergens": [],
+          "alcoholContent": 45,
+          "initialStock": 10
+        }
+      },
+      {
+        "id": "cocktail_009",
+        "name": "Daiquiri",
+        "price": 11,
+        "category": "cocktails",
+        "details": {
+          "description": "Simple rum cocktail with lime juice",
+          "allergens": [],
+          "alcoholContent": 55,
+          "initialStock": 15
+        }
+      },
+      {
+        "id": "cocktail_010",
+        "name": "Moscow Mule",
+        "price": 13,
+        "category": "cocktails",
+        "details": {
+          "description": "Vodka cocktail with ginger beer and lime",
+          "allergens": [],
+          "alcoholContent": 35,
+          "initialStock": 10
+        }
+      }
+    ]
+  }
