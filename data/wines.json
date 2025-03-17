@@ -10,7 +10,7 @@
           "allergens": ["sulfites"],
           "alcoholContent": 53,
           "tannins": 7,
-          "initialStock": 10
+          "initialStock": 2
         }
       },
       {
@@ -36,7 +36,7 @@
           "allergens": ["sulfites"],
           "alcoholContent": 93,
           "tannins": 4,
-          "initialStock": 10
+          "initialStock": 5
         }
       },
       {
@@ -49,7 +49,7 @@
           "allergens": ["sulfites"],
           "alcoholContent": 8,
           "tannins": 2,
-          "initialStock": 10
+          "initialStock": 7
         }
       },
       {
@@ -62,7 +62,7 @@
           "allergens": ["sulfites"],
           "alcoholContent": 14.5,
           "tannins": 8,
-          "initialStock": 10
+          "initialStock": 12
         }
       },
       {
@@ -75,7 +75,7 @@
           "allergens": ["sulfites"],
           "alcoholContent": 12.5,
           "tannins": 1,
-          "initialStock": 10
+          "initialStock": 20
         }
       },
       {
@@ -88,7 +88,7 @@
           "allergens": ["sulfites"],
           "alcoholContent": 65,
           "tannins": 6,
-          "initialStock": 10
+          "initialStock": 19
         }
       },
       {
@@ -101,7 +101,7 @@
           "allergens": ["sulfites"],
           "alcoholContent": 37,
           "tannins": 1,
-          "initialStock": 10
+          "initialStock": 15
         }
       },
       {
@@ -114,7 +114,7 @@
           "allergens": ["sulfites"],
           "alcoholContent": 70,
           "tannins": 2,
-          "initialStock": 10
+          "initialStock": 18
         }
       },
       {
@@ -127,7 +127,7 @@
           "allergens": ["sulfites"],
           "alcoholContent": 40,
           "tannins": 7,
-          "initialStock": 10
+          "initialStock": 6
         }
       }
     ]
