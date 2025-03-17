@@ -29,7 +29,8 @@
         "alcoholContent": 50,
         "tannins": 6,
         "initialStock": 9
-      }
+      },
+      "hidden": false
     },
     {
       "id": "wine_003",
