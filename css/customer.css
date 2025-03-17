@@ -1,3 +1,4 @@
+
 .container {
     display: flex;
     height: 100vh;
@@ -126,20 +127,10 @@
     border-radius: 3px;
 }
 
-
-.top-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
 .category-buttons {
-    flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    margin-right: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; 
 }
 
 .category-buttons button {
@@ -370,37 +361,6 @@
     background-color: #45a049;
 }
 
-/* Language selector */
-.language-selector {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 8px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-}
-
-.language-selector label {
-    margin-right: 8px;
-    font-weight: bold;
-    color: #333;
-}
-
-.language-selector select {
-    padding: 4px 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: white;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.language-selector select:focus {
-    outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
     .container {
@@ -412,18 +372,13 @@
         width: 100%;
     }
     
-    .top-controls {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
     .category-buttons {
-        margin-right: 0;
-        margin-bottom: 10px;
+        flex-wrap: wrap;
     }
     
-    .language-selector {
-        align-self: flex-start;
+    .category-buttons button {
+        margin-bottom: 5px;
+        flex-basis: 48%;
     }
     
     .modal-content {
@@ -431,22 +386,19 @@
     }
 }
 
-/* back button */
-.back-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
+.product-item.out-of-stock {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
-.back-button:hover {
-    background-color: #45a049;
+.product-item .stock-info {
+    color: red;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+
+.remove-product {
+    opacity: 0.5;
+    filter: blur(2px);
 }
