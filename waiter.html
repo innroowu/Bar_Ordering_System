@@ -85,32 +85,10 @@
         </div>
     </div>
     
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/models/product.js"></script>
     <script src="js/models/inventoryManager.js"></script>
     <script src="js/controllers/waiterController.js"></script>
     <script src="js/views/waiterView.js"></script>
-    <script>
-        $(document).ready(function() {
-            console.log("Waiter debug script loaded");
-            
-            // Check if the logout button exists
-            if ($('#logoutBtn').length) {
-                console.log("Waiter logout button found in DOM");
-            } else {
-                console.error("Waiter logout button NOT found in DOM");
-            }
-            
-            // Add a direct event handler
-            $(document).on('click', '#logoutBtn', function() {
-                console.log("Waiter logout clicked (from direct handler)");
-                sessionStorage.removeItem('waiterLoggedIn');
-                sessionStorage.removeItem('waiterName');
-                window.location.href = 'index.html';
-            });
-        });
-    </script>
-
 </body>
 </html>

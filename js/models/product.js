@@ -38,16 +38,3 @@ class Product {
         return this.details[property] !== undefined;
     }
 }
-
-// Note: This function has been replaced by the version in customerController.js
-// Kept for backward compatibility
-async function loadProducts(category) {
-    try {
-        const response = await fetch(`data/${category}.json`);
-        const data = await response.json();
-        return data[category] || [];
-    } catch (error) {
-        console.error(`Error loading ${category} products:`, error);
-        return [];
-    }
-}

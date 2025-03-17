@@ -42,6 +42,18 @@ $(document).ready(function() {
                 $(this).closest('.modal').hide();
             });
             
+            // Click outside modal to close
+            $('.modal').click(function(event) {
+                if ($(event.target).is('.modal')) {
+                    $(this).hide();
+                }
+            });
+
+            // Set up category button highlighting
+            $('.category-buttons button').click(function() {
+                $('.category-buttons button').removeClass('active');
+                $(this).addClass('active');
+            });
         } catch (error) {
             console.error('Initialization failed:', error);
         }

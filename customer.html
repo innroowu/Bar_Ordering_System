@@ -131,24 +131,6 @@
     <script>
         $(document).ready(function() {
             window.i18n.initLanguageSelector();
-            
-            // Category button highlighting
-            $('.category-buttons button').click(function() {
-                $('.category-buttons button').removeClass('active');
-                $(this).addClass('active');
-            });
-            
-            // Modal close button
-            $('.close').click(function() {
-                $(this).closest('.modal').hide();
-            });
-            
-            // Click outside modal to close
-            $('.modal').click(function(event) {
-                if ($(event.target).is('.modal')) {
-                    $(this).hide();
-                }
-            });
         });
     </script>
 </body>

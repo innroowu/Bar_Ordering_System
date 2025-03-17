@@ -6,7 +6,7 @@ class InventoryManager {
     // Load initial inventory from JSON
     async loadInventoryFromJson(category) {
         try {
-            const response = await fetch(`/data/${category}.json`);
+            const response = await fetch(`data/${category}.json`);
             const products = await response.json();
             
             products.forEach(product => {

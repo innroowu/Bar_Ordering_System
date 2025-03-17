@@ -117,25 +117,5 @@
             });
         });
     </script>
-    <script>
-        $(document).ready(function() {
-            console.log("Debug script loaded");
-            
-            // Check if the logout button exists
-            if ($('#logoutBtn').length) {
-                console.log("Logout button found in DOM");
-            } else {
-                console.error("Logout button NOT found in DOM");
-            }
-            
-            // Add a direct event handler
-            $(document).on('click', '#logoutBtn', function() {
-                console.log("Logout clicked (from direct handler)");
-                sessionStorage.removeItem('ownerLoggedIn');
-                sessionStorage.removeItem('ownerName');
-                window.location.href = 'index.html';
-            });
-        });
-    </script>
 </body>
 </html>
