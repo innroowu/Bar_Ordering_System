@@ -2,52 +2,50 @@ $(document).ready(function() {
     // Notification Features
     function addNotification(message, type = 'default') {
         const notificationList = $('#notificationList');
-        
-        // Check for duplicate notifications with the same message
-        if (notificationList.find('.notification span').filter(function() {
-            return $(this).text() === message;
-        }).length > 0) {
-            return; // A notification with the same message exists; do not add another.
-        }
-        
         const notification = $(`
             <div class="notification notification-${type}">
                 <span>${message}</span>
                 <button class="dismiss-notification">✕</button>
             </div>
         `);
-    
-        // Attach click handler for dismiss button
+
         notification.find('.dismiss-notification').click(function() {
             $(this).closest('.notification').fadeOut(300, function() {
                 $(this).remove();
             });
         });
-    
+
         notificationList.prepend(notification);
+
+        // Automatic removal notification
+        setTimeout(() => {
+            notification.fadeOut(300, function() {
+                $(this).remove();
+            });
+        }, 5000);
     }
-    
-    
 
     // Product detailed operation modal box
     function showProductActionModal(productId) {
         const modal = $('#productActionModal');
         const modalProductName = $('#modalProductName');
         const modalProductActions = $('#modalProductActions');
-    
-        // Assume we have the product details in the inventory
-        const product = window.inventoryManager && window.inventoryManager.inventory[productId];
-        if (!product) {
-            modalProductName.text("Product not found");
-            return;
-        }
-    
-        modalProductName.text(product.name);
+
+        // Simulate getting product details from inventory or database
+        const productDetails = {
+            id: productId,
+            name: 'Sample Product',
+            currentStock: 10,
+            lastRestocked: new Date().toLocaleString()
+        };
+
+        modalProductName.text(productDetails.name);
         modalProductActions.html(`
             <div class="product-actions">
                 <div class="stock-management">
                     <h4>Stock Management</h4>
-                    <p>Current Stock: ${product.quantity}</p>
+                    <p>Current Stock: ${productDetails.currentStock}</p>
+                    <p>Last Restocked: ${productDetails.lastRestocked}</p>
                     <div class="stock-controls">
                         <input type="number" id="stockAdjustment" placeholder="Adjust Stock">
                         <button id="addStockBtn">Add Stock</button>
@@ -68,42 +66,41 @@ $(document).ready(function() {
                 </div>
             </div>
         `);
-    
-        // Stock Adjustment Events: (Here you may add calls to inventoryManager.addStock or reduceStock)
+
+        // Stock Adjustment Events
         $('#addStockBtn').click(function() {
             const adjustment = parseInt($('#stockAdjustment').val());
             if (!isNaN(adjustment) && adjustment > 0) {
-                // For now, just show notification; later, integrate a PATCH call
-                addNotification(`Added ${adjustment} units to ${product.name}`, 'warning');
+                addNotification(`Added ${adjustment} units to ${productDetails.name}`, 'warning');
             }
         });
-    
+
         $('#removeStockBtn').click(function() {
             const adjustment = parseInt($('#stockAdjustment').val());
             if (!isNaN(adjustment) && adjustment > 0) {
-                addNotification(`Removed ${adjustment} units from ${product.name}`, 'critical');
+                addNotification(`Removed ${adjustment} units from ${productDetails.name}`, 'critical');
             }
         });
-    
+
         // Security Notification Events
         $('#notifySecurityBtn').click(function() {
             const note = $('#securityNote').val().trim();
             if (note) {
-                addNotification(`Security notified about ${product.name}: ${note}`, 'critical');
+                addNotification(`Security notified about ${productDetails.name}: ${note}`, 'critical');
             }
         });
-    
-        // Product Visibility Toggle Event
+
+        // Product Visibility Toggle
         $('#productVisibilityToggle').change(function() {
             const isHidden = $(this).is(':checked');
             addNotification(
-                `${product.name} is now ${isHidden ? 'hidden' : 'visible'}`, 
+                `${productDetails.name} is now ${isHidden ? 'hidden' : 'visible'}`, 
                 isHidden ? 'warning' : 'default'
             );
         });
-    
+
         modal.show();
-    }    
+    }
 
     // Table order management
     function updateTableOrderDetails(tableNumber) {
@@ -169,8 +166,8 @@ $(document).ready(function() {
         initializeEventListeners();
         
         addNotification('Welcome to Waiter Management System', 'default');
+        addNotification('Low stock alert for Mojito', 'warning');
     }
 
     initializePage();
-    window.addNotification = addNotification;
 });

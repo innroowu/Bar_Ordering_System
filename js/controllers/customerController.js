@@ -1,5 +1,8 @@
 $(document).ready(function() {
     // All product categories
+    $('#backBtn').click(function() {
+        window.history.back(); // Return to previous page
+    });
     const categories = ['wines', 'beers', 'cocktails', 'foods'];
     
     // Array to store all products
@@ -7,6 +10,13 @@ $(document).ready(function() {
     
     // Current displayed product category, initially 'all'
     let currentCategory = 'all';
+    
+    // Current logged in user
+    let currentUser = null;
+    
+    // Undo and redo stacks
+    let undoStack = [];
+    let redoStack = [];
     
     // Load data for all product categories
     async function initializeProducts() {
@@ -53,13 +63,14 @@ $(document).ready(function() {
                 console.log(`Loading ${category} category...`);
                 
                 try {
-                    const response = await fetch(`http://localhost:3000/${category}`);
+                    const response = await fetch(`data/${category}.json`);
                     if (!response.ok) {
                         console.error(`Unable to load ${category}: HTTP ${response.status}`);
                         continue;
                     }
                     
-                    const products = await response.json();
+                    const data = await response.json();
+                    const products = data[category] || [];
                     
                     // Convert to Product objects and add to total product list
                     const productObjects = products.map(item => 
@@ -68,8 +79,7 @@ $(document).ready(function() {
                             item.name, 
                             item.price, 
                             item.category, 
-                            item.details,
-                            item.hidden || false
+                            item.details
                         )
                     );
                     
@@ -226,30 +236,227 @@ $(document).ready(function() {
         });
     }
 
-    
-
     // VIP login handling
     $('#loginBtn').click(async function() {
         const username = $('#username').val();
         const password = $('#password').val();
         
         if (!username || !password) {
-            $('#loginStatus').text('Please enter username and password');
+            $('#loginStatus').text(window.i18n.translate('pleaseEnterCredentials'));
             return;
         }
         
-        // There should be actual login logic here, now just simulating success
-        $('#loginStatus').text(`Welcome, ${username}`);
-        
-        // If there's a User class with login method, you can use the code below
-        /*
         const user = await User.login(username, password);
         if (user) {
-            $('#loginStatus').text(`Welcome, ${user.name}`);
+            currentUser = user;
+            $('#loginStatus').html(`Welcome, ${user.name}<br>Balance: $${user.balance}`);
+            $('#loginBtn').text('Logout').off('click').click(logout);
+            $('#SpecialDBtn').show();
+
+            // Hide the username, password input fields, and login button
+            $('#username').hide();
+            $('#password').hide();
         } else {
             $('#loginStatus').text('Login failed');
         }
-        */
+    });
+
+    // Logout handling
+    function logout() {
+        currentUser = null;
+        $('#loginStatus').text('');
+        $('#loginBtn').text(window.i18n.translate('loginBtn')).off('click').click(async function() {
+            const username = $('#username').val();
+            const password = $('#password').val();
+            
+            if (!username || !password) {
+                $('#loginStatus').text('Please enter username and password');
+                return;
+            }
+            
+            const user = await User.login(username, password);
+            if (user) {
+                currentUser = user;
+                $('#loginStatus').html(`Welcome, ${user.name}<br>Balance: $${user.balance}`);
+                $('#loginBtn').text('Logout').off('click').click(logout);
+                $('#SpecialDBtn').show();
+            } else {
+                $('#loginStatus').text('Login failed');
+            }
+        });
+
+        // Show the username, password input fields, and login button again
+        $('#username').show();
+        $('#password').show();
+        $('#loginBtn').show();
+
+        // Hide special drinks button upon logout
+        $('#SpecialDBtn').hide();
+    }
+
+    // Special drinks handling
+    $('#SpecialDBtn').click(async function() {
+        try {
+            const response = await fetch('data/special.json');
+            const data = await response.json();
+            const specialProducts = data.special_drinks.map(item =>
+                new Product(
+                    item.id, 
+                    item.name, 
+                    item.price, 
+                    item.category, 
+                    item.details
+                )
+            );
+            
+            renderProductList(specialProducts);
+        } catch (error) {
+            console.error('Failed to load special drinks:', error);
+            $('#productList').html(`<p>Unable to load special drinks: ${error.message}</p>`);
+        }
+    });
+
+    // Save current order state
+    function saveOrderState() {
+        const currentOrder = [];
+        $('.order-item').each(function() {
+            const product = $(this).data('product');
+            const quantity = parseInt($(this).find('.item-quantity').text());
+            currentOrder.push({ ...product, quantity });
+        });
+        
+        undoStack.push(currentOrder);
+    }
+
+    // Function to add to order
+    function addToOrder(product) {
+        // Save current state for undo
+        saveOrderState();
+        
+        // First remove empty order message
+        $('.empty-order-message').remove();
+        
+        const orderList = $('#orderList');
+        
+        // Check if the same product is already in the order
+        const existingItem = orderList.find(`.order-item[data-id="${product.id}"]`);
+        
+        if (existingItem.length) {
+            // If exists, increase quantity
+            const quantityElement = existingItem.find('.item-quantity');
+            let quantity = parseInt(quantityElement.text());
+            quantity += 1;
+            quantityElement.text(quantity);
+        } else {
+            // If not exists, create new order item
+            const orderItemElement = $(`
+                <div class="order-item" data-id="${product.id}">
+                    <span class="item-name">${product.name}</span>
+                    <span class="item-quantity">1</span>
+                    <span class="item-price">${product.price}</span>
+                    <button class="remove-item">x</button>
+                </div>
+            `);
+
+            // Save product data to element for later use
+            orderItemElement.data('product', product);
+
+            // Add delete button event
+            orderItemElement.find('.remove-item').click(function() {
+                saveOrderState();
+                $(this).closest('.order-item').remove();
+                updateTotal();
+                
+                // If order becomes empty, add prompt
+                if ($('.order-item').length === 0) {
+                    orderList.html(`<p class="empty-order-message">${window.i18n.translate('emptyOrderMessage')}</p>`);
+                }
+            });
+
+            orderList.append(orderItemElement);
+        }
+        
+        // Clear redo stack
+        redoStack = [];
+        
+        updateTotal();
+    }
+
+    // Update order list
+    function updateOrderList(orderState) {
+        const orderList = $('#orderList');
+        orderList.empty();
+        
+        if (!orderState || orderState.length === 0) {
+            orderList.html(`<p class="empty-order-message">${window.i18n.translate('emptyOrderMessage')}</p>`);
+            updateTotal();
+            return;
+        }
+        
+        orderState.forEach(item => {
+            const orderItemElement = $(`
+                <div class="order-item" data-id="${item.id}">
+                    <span class="item-name">${item.name}</span>
+                    <span class="item-quantity">${item.quantity}</span>
+                    <span class="item-price">${item.price}</span>
+                    <button class="remove-item">x</button>
+                </div>
+            `);
+            
+            orderItemElement.data('product', item);
+            
+            orderItemElement.find('.remove-item').click(function() {
+                saveOrderState();
+                $(this).closest('.order-item').remove();
+                updateTotal();
+                
+                if ($('.order-item').length === 0) {
+                    orderList.html('<p class="empty-order-message">Drag products from the left to add to your order</p>');
+                }
+            });
+            
+            orderList.append(orderItemElement);
+        });
+        
+        updateTotal();
+    }
+
+    // Undo function
+    $('#undoBtn').click(function() {
+        if (undoStack.length > 0) {
+            // Save current state for Redo
+            const currentOrder = [];
+            $('.order-item').each(function() {
+                const product = $(this).data('product');
+                const quantity = parseInt($(this).find('.item-quantity').text());
+                currentOrder.push({ ...product, quantity });
+            });
+            
+            redoStack.push(currentOrder);
+            
+            // Revert to previous state
+            const previousState = undoStack.pop();
+            updateOrderList(previousState);
+        }
+    });
+
+    // Redo function
+    $('#redoBtn').click(function() {
+        if (redoStack.length > 0) {
+            // Save current state for Undo
+            const currentOrder = [];
+            $('.order-item').each(function() {
+                const product = $(this).data('product');
+                const quantity = parseInt($(this).find('.item-quantity').text());
+                currentOrder.push({ ...product, quantity });
+            });
+            
+            undoStack.push(currentOrder);
+            
+            // Apply redo operation
+            const redoState = redoStack.pop();
+            updateOrderList(redoState);
+        }
     });
 
     // Bill split functionality
@@ -295,23 +502,70 @@ $(document).ready(function() {
         // Close the modal
         $('#billSplitModal').hide();
     });
-    // Checkout button handling
+
+    // Checkout Button Handling
     $('#checkoutBtn').click(function() {
         const itemCount = $('.order-item').length;
         if (itemCount === 0) {
-            alert('Your order is empty, please add items first');
+            alert(window.i18n.translate('orderEmpty'));
             return;
         }
+    
+        const total = parseFloat($('#totalPrice').text());
         
-        const total = $('#totalPrice').text();
-        alert(`Thank you for your purchase! Your total is $${total}.`);
-        
-        // Clear the order
-        $('#orderList').empty();
-        updateTotal();
-        initializeProducts();
+        // Check if user is VIP (logged in)
+        if (currentUser) {
+            // VIP user - Check balance
+            if (currentUser.balance >= total) {
+                // Sufficient balance, deduct and complete checkout
+                currentUser.balance -= total;
+                $('#loginStatus').html(`${window.i18n.translate('welcome')} ${currentUser.name}<br>${window.i18n.translate('balance')} $${currentUser.balance}`);
+                alert(`${window.i18n.translate('thankYouPurchase')}${total}.`);
+                
+                // Clear order and update total
+                $('#orderList').empty();
+                $('#orderList').html(`<p class="empty-order-message">${window.i18n.translate('emptyOrderMessage')}</p>`);
+                updateTotal();
+            } else {
+                // Insufficient balance
+                alert(window.i18n.translate('insufficientBalance'));
+            }
+        } else {
+            // Non-VIP user - Direct checkout, no need to check balance
+            alert(`${window.i18n.translate('thankYouPurchase')}${total}.`);
+            
+            // Clear order and update total
+            $('#orderList').empty();
+            $('#orderList').html(`<p class="empty-order-message">${window.i18n.translate('emptyOrderMessage')}</p>`);
+            updateTotal();
+        }
     });
+
+    // Update total
+    function updateTotal() {
+        let total = 0;
+        
+        // Calculate total from all order items
+        $('.order-item').each(function() {
+            const price = parseFloat($(this).find('.item-price').text());
+            const quantity = parseInt($(this).find('.item-quantity').text());
+            total += price * quantity;
+        });
+        
+        // Update the displayed total price
+        $('#totalPrice').text(total.toFixed(2));
+    }
+
 
     // Initialize application
     initializeProducts();
+
+    // when language select, reload the view
+    $('#language-select').change(function() {
+        // reload the category
+        if (currentCategory) {
+            filterByCategory(currentCategory);
+        }
+    });
+
 });

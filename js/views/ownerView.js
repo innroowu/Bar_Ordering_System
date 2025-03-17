@@ -5,43 +5,34 @@ $(document).ready(function() {
     });
 
     // Save product changes
-    $('#saveProductChangesBtn').click(async function() {
+    $('#saveProductChangesBtn').click(function() {
         const updatedProduct = {
             name: $('#editProductName').val(),
             price: parseFloat($('#editProductPrice').val()),
-            details: {
-                description: $('#editProductDescription').val(),
-                // If you want to update allergens, you might store them inside details as well
-                allergens: $('#editProductAllergens').val().split(','),
-                initialStock: parseInt($('#editProductStock').val())
-            }
+            description: $('#editProductDescription').val(),
+            allergens: $('#editProductAllergens').val().split(','),
+            stock: parseInt($('#editProductStock').val())
         };
-    
+
         // Check if low stock
-        const isLowStock = updatedProduct.details.initialStock <= 5;
+        const isLowStock = updatedProduct.stock <= 5;
+        
+        // If low stock, show confirmation dialog
         if (isLowStock) {
-            if (!confirm(`WARNING: This product has low stock (${updatedProduct.details.initialStock} remaining). Do you want to add more stock or continue with current amount?`)) {
+            if (confirm(`WARNING: This product has low stock (${updatedProduct.stock} remaining). Do you want to add more stock or continue with current amount?`)) {
+                // User chooses to continue
+                console.log('Updated Product (Low Stock):', updatedProduct);
+            } else {
+                // User chooses to cancel, return to editing
                 return;
             }
+        } else {
+            console.log('Updated Product:', updatedProduct);
         }
-    
-        // Get the product id (assume it's stored in a data attribute on the modal or a global variable)
-        const productId = $('#editProductModal').data('productId');
-        const category = $('#editProductModal').data('category');
-    
-        try {
-            await fetch(`http://localhost:3000/${category}/${productId}`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(updatedProduct)
-            });
-            $('#editProductModal').hide();
-            loadProducts(category);
-        } catch (error) {
-            console.error('Failed to update product:', error);
-        }
+        
+        // TODO: Implement save logic, update corresponding JSON file
+        $('#editProductModal').hide();
     });
-    
 
     // Product visibility toggle
     $(document).on('click', '.toggle-visibility', function() {

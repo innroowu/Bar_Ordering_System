@@ -1,11 +1,10 @@
 class Product {
-    constructor(id, name, price, category, details, hidden = false) {
+    constructor(id, name, price, category, details) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.category = category;
         this.details = details || {};
-        this.hidden = hidden;
         
         // Ensure properties exist in details
         if (!this.details.allergens) this.details.allergens = [];
@@ -44,7 +43,7 @@ class Product {
 // Kept for backward compatibility
 async function loadProducts(category) {
     try {
-        const response = await fetch(`http://localhost:3000/${category}`);
+        const response = await fetch(`data/${category}.json`);
         const data = await response.json();
         return data[category] || [];
     } catch (error) {

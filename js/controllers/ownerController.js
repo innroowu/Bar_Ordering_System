@@ -35,16 +35,16 @@ $(document).ready(function() {
     // Load product list
     async function loadProducts(category) {
         try {
-            const response = await fetch(`http://localhost:3000/${category}`);
+            const response = await fetch(`data/${category}.json`);
             const products = await response.json();
-            renderProductList(products);
-            updateFinancialOverview(products);
-            checkLowStockItems(products);
+            renderProductList(products[category]);
+            updateFinancialOverview(products[category]);
+            checkLowStockItems(products[category]);
         } catch (error) {
             console.error('Failed to load products:', error);
         }
     }
-    
+
     // Render product list
     function renderProductList(products) {
         const productList = $('#productList');
@@ -136,9 +136,9 @@ $(document).ready(function() {
     });
 
     // Add product event
-    $('#addProductBtn').click(async function() {
+    $('#addProductBtn').click(function() {
         const newProduct = {
-            id: `${currentCategory}${Date.now()}`,  // Generates a unique id; adjust as needed
+            id: `${currentCategory}${Date.now()}`,
             name: $('#newProductName').val(),
             price: parseFloat($('#newProductPrice').val()),
             category: currentCategory,
@@ -148,50 +148,27 @@ $(document).ready(function() {
                 initialStock: parseInt($('#newProductStock').val())
             }
         };
-    
-        try {
-            await fetch(`http://localhost:3000/${currentCategory}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(newProduct)
-            });
-            // Reload product list after successful addition
-            loadProducts(currentCategory);
-        } catch (error) {
-            console.error('Failed to add product:', error);
-        }
+
+        // TODO: Save new product to corresponding JSON file
+        console.log('New Product:', newProduct);
+        
+        // Reload product list
+        loadProducts(currentCategory);
     });
-    
 
     // Edit product modal
     $(document).on('click', '.edit-product', function() {
-        const productElement = $(this).closest('.product-item');
-        const productId = productElement.data('id');
-        const category = currentCategory;
-        
-        // Store these on the modal for later use
-        $('#editProductModal').data('productId', productId);
-        $('#editProductModal').data('category', category);
-        
-        // Optionally, populate the modal fields with existing product data (this may require an additional fetch or using data already in the DOM)
-        // For now, we'll assume the modal is filled manually.
+        const productId = $(this).closest('.product-item').data('id');
+        // TODO: Get product details from data source and fill in edit form
         $('#editProductModal').show();
     });
-    
 
     // Delete product event
-    $(document).on('click', '.delete-product', async function() {
+    $(document).on('click', '.delete-product', function() {
         const productId = $(this).closest('.product-item').data('id');
-        try {
-            await fetch(`http://localhost:3000/${currentCategory}/${productId}`, {
-                method: 'DELETE'
-            });
-            loadProducts(currentCategory);
-        } catch (error) {
-            console.error('Failed to delete product:', error);
-        }
+        // TODO: Implement delete logic
+        $(this).closest('.product-item').remove();
     });
-    
 
     // Initial load
     loadProducts(currentCategory);
