@@ -10,12 +10,24 @@
     <div class="container">
         <!-- Left menu area -->
         <div class="menu-section">
-            <div class="category-buttons">
-                <button id="allBtn" class="active">All Products</button>
-                <button id="winesBtn">Wines</button>
-                <button id="beersBtn">Beers</button>
-                <button id="cocktailsBtn">Cocktails</button>
-                <button id="foodBtn">Food</button>
+            <div class="top-controls">
+                <div class="category-buttons">
+                    <button id="allBtn" class="active">All Products</button>
+                    <button id="winesBtn">Wines</button>
+                    <button id="beersBtn">Beers</button>
+                    <button id="cocktailsBtn">Cocktails</button>
+                    <button id="foodBtn">Food</button>
+                </div>
+                
+                <!-- Translate function -->
+                <div class="language-selector">
+                    <label for="language-select">Language:</label>
+                    <select id="language-select">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="sv">Svenska</option>
+                    </select>
+                </div>
             </div>
 
             <div class="search-filter">
@@ -62,6 +74,7 @@
                 <input type="text" id="username" placeholder="Username">
                 <input type="password" id="password" placeholder="Password">
                 <button id="loginBtn">Login</button>
+                <button id="SpecialDBtn" style="display: none;">Special Drinks</button>
                 <div id="loginStatus"></div>
             </div>
 
@@ -74,6 +87,8 @@
                 </div>
                 <div class="order-summary">
                     <p>Total: $<span id="totalPrice">0.00</span></p>
+                    <button id="undoBtn">Undo</button>
+                    <button id="redoBtn">Redo</button>
                     <button id="billSplitBtn">Split Bill</button>
                     <button id="checkoutBtn">Checkout</button>
                 </div>
@@ -103,9 +118,11 @@
             </div>
         </div>
     </div>
-
+    <button id="backBtn" class="back-button">Back</button>
+    
     <!-- Include necessary JS files -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/models/product.js"></script>
     <script src="js/models/user.js"></script>
     <script src="js/views/customerView.js"></script>
@@ -113,6 +130,8 @@
     
     <script>
         $(document).ready(function() {
+            window.i18n.initLanguageSelector();
+            
             // Category button highlighting
             $('.category-buttons button').click(function() {
                 $('.category-buttons button').removeClass('active');
