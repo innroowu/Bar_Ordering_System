@@ -21,7 +21,7 @@
           "description": "Strong, complex Trappist monk-brewed ale",
           "allergens": ["gluten"],
           "alcoholContent": 19.0,
-          "initialStock": 10
+          "initialStock": 3
         }
       },
       {
@@ -45,7 +45,7 @@
           "description": "Rich, creamy Irish-style stout",
           "allergens": ["gluten"],
           "alcoholContent": 4.8,
-          "initialStock": 10
+          "initialStock": 1
         }
       },
       {
@@ -69,7 +69,7 @@
           "description": "Tart and fruity craft sour beer",
           "allergens": ["gluten"],
           "alcoholContent": 45.7,
-          "initialStock": 10
+          "initialStock": 2
         }
       },
       {
@@ -81,7 +81,7 @@
           "description": "Classic Czech-style pilsner",
           "allergens": ["gluten"],
           "alcoholContent": 35.0,
-          "initialStock": 10
+          "initialStock": 15
         }
       },
       {
@@ -93,7 +93,7 @@
           "description": "Balanced malty and hoppy American amber ale",
           "allergens": ["gluten"],
           "alcoholContent": 57.5,
-          "initialStock": 10
+          "initialStock": 20
         }
       },
       {
@@ -117,7 +117,7 @@
           "description": "Light and hoppy traditional pale ale",
           "allergens": ["gluten"],
           "alcoholContent": 5.2,
-          "initialStock": 10
+          "initialStock": 7
         }
       }
     ]
