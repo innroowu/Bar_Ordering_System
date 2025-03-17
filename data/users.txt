@@ -1,0 +1,38 @@
+{
+    "vipUsers": [
+        {
+            "username": "user1",
+            "password": "pass1",
+            "name": "John Doe"
+        },
+        {
+            "username": "user2", 
+            "password": "pass2",
+            "name": "Jane Smith"
+        },
+        {
+            "username": "user3",
+            "password": "pass3", 
+            "name": "Mike Johnson"
+        }
+    ],
+    "ownerUsers": [
+        {
+            "username": "admin",
+            "password": "admin123",
+            "name": "Bar Owner"
+        }
+    ],
+    "waiterUsers": [
+        {
+            "username": "waiter1",
+            "password": "waiter123",
+            "name": "Sam Server"
+        },
+        {
+            "username": "waiter2",
+            "password": "waiter456",
+            "name": "Lisa Server"
+        }
+    ]
+}
