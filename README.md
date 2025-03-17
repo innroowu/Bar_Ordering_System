@@ -33,12 +33,12 @@ Bar_Ordering_System
        |    ├─ indexView.js
        |    ├─ ownerView.js
        |    └─ waiterView.js
-       └─ controllers/
-            ├─ customerController.js
-            ├─ indexController.js
-            ├─ ownerController.js
-            └─ waiterController.js
-
+       ├─ controllers/
+       |    ├─ customerController.js
+       |    ├─ indexController.js
+       |    ├─ ownerController.js
+       |    └─ waiterController.js
+       └─ i18n.js
 ```
 
 ## Collaborators/Group members
