@@ -3,23 +3,21 @@
     {
       "id": "wine_001",
       "name": "Château Margaux",
-      "price": 450,
+      "price": 100,
       "category": "wines",
       "details": {
-        "description": "A prestigious Bordeaux red wine with complex flavors",
+        "description": "Best wine ever",
         "allergens": [
           "sulfites"
         ],
-        "alcoholContent": 53,
-        "tannins": 7,
-        "initialStock": 10
+        "initialStock": 15
       },
       "hidden": false
     },
     {
       "id": "wine_002",
       "name": "Opus One",
-      "price": 380,
+      "price": 100,
       "category": "wines",
       "details": {
         "description": "Iconic Napa Valley Bordeaux-style red blend",
@@ -28,9 +26,8 @@
         ],
         "alcoholContent": 50,
         "tannins": 6,
-        "initialStock": 9
-      },
-      "hidden": false
+        "initialStock": 7
+      }
     },
     {
       "id": "wine_003",
@@ -159,17 +156,16 @@
     {
       "id": "beer_001",
       "name": "Craft IPA",
-      "price": 9,
+      "price": 7,
       "category": "beers",
       "details": {
-        "description": "Hoppy American-style India Pale Ale",
+        "description": "the best beer",
         "allergens": [
           "gluten"
         ],
-        "initialStock": 6,
-        "alcoholContent": 3,
-        "tannins": 0
-      }
+        "initialStock": 10
+      },
+      "hidden": false
     },
     {
       "id": "beer_002",
@@ -177,13 +173,16 @@
       "price": 12,
       "category": "beers",
       "details": {
-        "description": "Strong, complex Trappist monk-brewed ale",
+        "description": "The best beer in the world.",
         "allergens": [
           "gluten"
         ],
-        "alcoholContent": 19,
-        "initialStock": 10
-      }
+        "initialStock": 0,
+        "initialStockBaseline": 1,
+        "alcoholContent": 0,
+        "tannins": 0
+      },
+      "hidden": false
     },
     {
       "id": "beer_003",
@@ -196,7 +195,9 @@
           "gluten"
         ],
         "alcoholContent": 15.2,
-        "initialStock": 10
+        "initialStock": 8,
+        "initialStockBaseline": 9,
+        "tannins": 0
       }
     },
     {
@@ -210,7 +211,9 @@
           "gluten"
         ],
         "alcoholContent": 4.8,
-        "initialStock": 10
+        "initialStock": 9,
+        "initialStockBaseline": 10,
+        "tannins": 0
       }
     },
     {
@@ -301,20 +304,17 @@
       "hidden": false
     },
     {
-      "id": "beers1741614827029",
-      "name": "heine",
-      "price": 9,
+      "id": "beers1742378564195",
+      "name": "lalalal",
+      "price": 10000,
       "category": "beers",
       "details": {
-        "description": "lala",
+        "description": "Feel the lala",
         "allergens": [
           "gluten"
         ],
-        "initialStock": 0,
-        "alcoholContent": 0,
-        "tannins": 0
-      },
-      "hidden": false
+        "initialStock": 1000
+      }
     }
   ],
   "cocktails": [
@@ -578,22 +578,150 @@
       }
     }
   ],
+  "special_drinks": [
+    {
+      "id": "special_001",
+      "name": "Golden Elixir",
+      "price": 50,
+      "category": "special_drinks",
+      "details": {
+        "description": "Exclusive golden cocktail with rare ingredients",
+        "allergens": [],
+        "alcoholContent": 20,
+        "initialStock": 4,
+        "tannins": 0
+      }
+    },
+    {
+      "id": "special_002",
+      "name": "Diamond Fizz",
+      "price": 60,
+      "category": "special_drinks",
+      "details": {
+        "description": "Sparkling cocktail with a touch of luxury",
+        "allergens": [],
+        "alcoholContent": 18,
+        "initialStock": 4,
+        "tannins": 0
+      }
+    },
+    {
+      "id": "special_003",
+      "name": "Black Pearl",
+      "price": 70,
+      "category": "special_drinks",
+      "details": {
+        "description": "Dark and mysterious cocktail with a smoky finish",
+        "allergens": [],
+        "alcoholContent": 22,
+        "initialStock": 4,
+        "tannins": 0
+      }
+    },
+    {
+      "id": "special_004",
+      "name": "Velvet Sunset",
+      "price": 55,
+      "category": "special_drinks",
+      "details": {
+        "description": "Smooth and velvety cocktail with a hint of citrus",
+        "allergens": [],
+        "alcoholContent": 15,
+        "initialStock": 5
+      }
+    },
+    {
+      "id": "special_005",
+      "name": "Crystal Dream",
+      "price": 65,
+      "category": "special_drinks",
+      "details": {
+        "description": "Clear and refreshing cocktail with a floral aroma",
+        "allergens": [],
+        "alcoholContent": 17,
+        "initialStock": 5
+      }
+    },
+    {
+      "id": "special_006",
+      "name": "Royal Mint Julep",
+      "price": 75,
+      "category": "special_drinks",
+      "details": {
+        "description": "A luxurious twist on the classic mint julep",
+        "allergens": [],
+        "alcoholContent": 19,
+        "initialStock": 5
+      }
+    },
+    {
+      "id": "special_007",
+      "name": "Sapphire Sparkler",
+      "price": 80,
+      "category": "special_drinks",
+      "details": {
+        "description": "A dazzling cocktail with a blue hue and effervescence",
+        "allergens": [],
+        "alcoholContent": 21,
+        "initialStock": 5
+      }
+    },
+    {
+      "id": "special_008",
+      "name": "Emerald Isle",
+      "price": 58,
+      "category": "special_drinks",
+      "details": {
+        "description": "A green cocktail with herbal and citrus notes",
+        "allergens": [],
+        "alcoholContent": 16,
+        "initialStock": 5
+      }
+    },
+    {
+      "id": "special_009",
+      "name": "Ruby Royale",
+      "price": 85,
+      "category": "special_drinks",
+      "details": {
+        "description": "A rich red cocktail with berry and spice flavors",
+        "allergens": [],
+        "alcoholContent": 23,
+        "initialStock": 5
+      }
+    },
+    {
+      "id": "special_010",
+      "name": "Platinum Martini",
+      "price": 90,
+      "category": "special_drinks",
+      "details": {
+        "description": "A premium martini with a silky smooth finish",
+        "allergens": [],
+        "alcoholContent": 24,
+        "initialStock": 5
+      }
+    }
+  ],
   "users": {
     "vipUsers": [
       {
         "username": "user1",
         "password": "pass1",
-        "name": "John Doe"
+        "name": "John Doe",
+        "balance": 450
       },
       {
         "username": "user2",
         "password": "pass2",
-        "name": "Jane Smith"
+        "name": "Jane Smith",
+        "balance": 200
       },
       {
         "username": "user3",
         "password": "pass3",
-        "name": "Mike Johnson"
+        "name": "Mike Johnson",
+        "balance": 500
       }
     ],
     "ownerUsers": [

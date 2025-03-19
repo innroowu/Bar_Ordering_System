@@ -75,7 +75,6 @@ table th, table td {
     color: #721c24;
 }
 
-
 /* logout button */
 .waiter-header {
     display: flex;
@@ -111,4 +110,14 @@ table th, table td {
 .logout-btn:hover {
     background-color: #d32f2f;
     transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+    }
+    .modal-content {
+        width: 90%; /* Adjust modal width on smaller screens */
+    }
 }

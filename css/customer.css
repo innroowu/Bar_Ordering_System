@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
 
 .container {
     display: flex;
     height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: 'Pirata One', cursive;
+    background-color: #e6ddc0;
+    color: #494140;
+    border: 10px solid #645c59;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8); 
 }
+
 
 .menu-section {
     flex: 1;
     padding: 20px;
-    background-color: #f5f5f5;
-    border-right: 1px solid #ddd;
+    background-color: #e6ddc0;
+    border-right: 0px solid #645c59;
     overflow-y: auto;
 }
 
@@ -18,36 +24,41 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #fff;
+    background-color: #645c59;
 }
 
 .vip-login {
     margin-bottom: 30px;
     padding: 15px;
-    background-color: #f0f8ff;
+    background-color: #8cabb0;
     border-radius: 5px;
 }
 
 .vip-login input {
     display: block;
-    width: 100%;
+    width: 95%;
     margin: 10px 0;
     padding: 8px;
     border: 1px solid #ddd;
+    color: #e6ddc0;
 }
 
 .vip-login button {
     padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #645c59;
     border: none;
     cursor: pointer;
+    border-radius: 3px;
+    color: #e6ddc0;
 }
 
 #loginStatus {
     margin-top: 10px;
-    color: #4CAF50;
+    color: #494140;
     font-weight: bold;
+    font-size: 21px; 
+    line-height: 1.8;
+    padding: 8px;
 }
 
 .order-section {
@@ -68,7 +79,7 @@
 
 .order-list.drag-over {
     background-color: #e0f7fa;
-    border-color: #26c6da;
+    border-color: #8cabb0;
 }
 
 .empty-order-message {
@@ -94,7 +105,7 @@
 
 .order-item .item-quantity {
     background-color: #e8f5e9;
-    color: #4CAF50;
+    color: #8cabb0;
     font-weight: bold;
     padding: 2px 6px;
     border-radius: 10px;
@@ -119,18 +130,35 @@
 }
 
 .order-summary {
+    background-color: #494140;
+    color: #e6ddc0; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #e8f5e9;
+    background-color: #645c59;
     border-radius: 3px;
 }
 
-.category-buttons {
+#checkoutBtn {
+    background-color: #d4af37;
+    color: #f9f5e7;
+}
+
+
+.top-controls {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
+}
+
+.category-buttons {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 10px;
 }
 
 .category-buttons button {
@@ -139,9 +167,9 @@
     padding: 10px;
     margin-right: 5px;
     margin-bottom: 5px; 
-    background-color: #f0f0f0;
+    background-color: #d0c8b2;
     color: #333;
-    border: 1px solid #ddd;
+    border: 2px solid #494140;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s;
@@ -152,9 +180,9 @@
 }
 
 .category-buttons button.active {
-    background-color: #4CAF50;
+    background-color: #d4af37;
     color: white;
-    border-color: #388E3C;
+    border-color: #494140;
 }
 
 .category-buttons button:hover {
@@ -162,7 +190,7 @@
 }
 
 .category-buttons button.active:hover {
-    background-color: #388E3C;
+    background-color: #d4af37;
 }
 
 .search-filter {
@@ -170,16 +198,91 @@
 }
 
 .search-filter input, .search-filter select {
-    width: 100%;
+    width: 97.2%;
     padding: 8px;
+    color:#494140;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 2px solid #494140;
     border-radius: 4px;
 }
 
-.allergen-filter, .alcohol-filter, .tannin-filter {
-    margin-bottom: 15px;
+
+.filters-container {
+    display: flex;
+    justify-content: space-between; 
+    gap: 15px; 
 }
+
+.allergen-filter {
+    color: #494140;
+    padding: 10px;
+    width: 45%;
+}
+
+.right-filters {
+    display: flex;
+    flex-direction: column; 
+    width: 45%; 
+    margin-right: 38px;
+}
+
+.alcohol-filter, .tannin-filter {
+    margin-bottom: 10px; 
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    width: 100%;
+    margin: 10px 0;
+}
+
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #3d2b1f;
+    height: 6px;
+    border-radius: 3px;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+input[type="range"]::-moz-range-track {
+    background: #e6ddc0;
+    height: 6px;
+    border-radius: 3px;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #d4af37;
+    border: 2px solid #e6ddc0;
+    border-radius: 0;
+    transform: rotate(45deg);
+    margin-top: -7px;
+    cursor: pointer;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #d4af37;
+    border: 2px solid #3d2b1f;
+    border-radius: 0;
+    transform: rotate(45deg);
+    cursor: pointer;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+
 
 .drag-instruction {
     margin: 15px 0;
@@ -226,7 +329,7 @@
 
 .product-item p {
     margin: 0;
-    color: #4CAF50;
+    color: #8cabb0;
     font-weight: bold;
 }
 
@@ -307,7 +410,7 @@
 
 #startSplitBtn {
     padding: 8px 15px;
-    background-color: #4CAF50;
+    background-color: #8cabb0;
     color: white;
     border: none;
     cursor: pointer;
@@ -323,7 +426,7 @@
 
 .btn {
     padding: 8px 15px;
-    background-color: #4CAF50;
+    background-color: #8cabb0;
     color: white;
     border: none;
     border-radius: 3px;
@@ -332,7 +435,7 @@
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color: #8cabb0;
 }
 
 /* Drag and drop effects */
@@ -348,7 +451,7 @@
 
 #confirmSplitBtn {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #8cabb0;
     color: white;
     border: none;
     border-radius: 5px;
@@ -358,7 +461,39 @@
 }
 
 #confirmSplitBtn:hover {
-    background-color: #45a049;
+    background-color: #8cabb0;
+}
+
+/* Language selector */
+.language-selector {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #494140;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.language-selector label {
+    margin-right: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.language-selector select {
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.language-selector select:focus {
+    outline: none;
+    border-color: #8cabb0;
+    box-shadow: 0 0 3px rgba(76, 175, 80, 0.5);
 }
 
 /* Responsive design */
@@ -370,20 +505,81 @@
     .menu-section, .right-section {
         flex: 1;
         width: 100%;
+        height: 10%;
+    }
+    
+    .top-controls {
+        flex-direction: column;
+        align-items: stretch;
     }
     
     .category-buttons {
-        flex-wrap: wrap;
+        margin-right: 0;
+        margin-bottom: 10px;
     }
     
-    .category-buttons button {
-        margin-bottom: 5px;
-        flex-basis: 48%;
+    .language-selector {
+        align-self: flex-start;
     }
     
     .modal-content {
         width: 90%;
     }
+
+    /* New responsive fix for VIP login and cart */
+    .right-section {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         gap: 10px;
+    }
+    .vip-login, .order-section {
+         width: 20%;
+         margin-bottom: 0;
+    }
+    .order-section {
+         overflow-y: auto;
+    }
+}
+
+/* back button */
+.back-button {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    padding: 10px 20px;
+    background-color: #f2584d;
+    color: #e6ddc0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #daa520;
+}
+
+/* 统一所有按钮字体 */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.btn,
+#confirmSplitBtn,
+.vip-login button,
+.category-buttons button {
+    font-family: 'Pirata One', cursive !important;
+    letter-spacing: 1px;
+    font-size: 16px; 
+    text-transform: uppercase; 
+}
+
+
+.remove-item,
+.language-selector select {
+    font-size: 14px !important;
 }
 
 .product-item.out-of-stock {

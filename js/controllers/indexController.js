@@ -36,7 +36,7 @@ $(document).ready(function() {
         }
         
         try {
-            const response = await fetch('http://localhost:3000/users');
+            const response = await fetch('data/users.json');
             const data = await response.json();
             
             // Check if owner credentials are valid
@@ -71,7 +71,7 @@ $(document).ready(function() {
         }
         
         try {
-            const response = await fetch('http://localhost:3000/users');
+            const response = await fetch('data/users.json');
             const data = await response.json();
             
             // Check if waiter credentials are valid

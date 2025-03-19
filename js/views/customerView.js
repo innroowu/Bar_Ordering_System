@@ -129,7 +129,9 @@ function addToOrder(product) {
         orderItemElement.data('product', product);
 
         // Remove button event: decrease quantity or remove item
-        orderItemElement.find('.remove-item').click(async function() {
+        orderItemElement.find('.remove-item').click(function() {
+            // Save state for undo if needed
+            // Remove or decrease quantity
             const orderItem = $(this).closest('.order-item');
             const quantityElement = orderItem.find('.item-quantity');
             let quantity = parseInt(quantityElement.text());
@@ -139,24 +141,31 @@ function addToOrder(product) {
             } else {
                 orderItem.remove();
             }
-            await increaseStock(product);
+            // Increase stock for the product
+            increaseStock(product);
             updateTotal();
             if ($('.order-item').length === 0) {
                 orderList.html('<p class="empty-order-message">Drag products from the left to add to your order</p>');
+            }
+            // Recalculate stock after removal
+            if (window.recalcStockBasedOnOrder) {
+                window.recalcStockBasedOnOrder();
             }
         });
 
         orderList.append(orderItemElement);
     }
     
-    // After adding the product, decrease its stock
+    // After adding, decrease the product stock and update total
     decreaseStock(product);
     updateTotal();
+    // Recalculate stock based on current order state
+    if (window.recalcStockBasedOnOrder) {
+        window.recalcStockBasedOnOrder();
+    }
 }
 
-
-
-// update the total price of order
+// Update total price of order
 function updateTotal() {
     let total = 0;
     
@@ -169,59 +178,4 @@ function updateTotal() {
     
     // Update the displayed total price
     $('#totalPrice').text(total.toFixed(2));
-}
-
-async function decreaseStock(product) {
-    if (product.details.initialStock > 0) {
-        const newStock = product.details.initialStock - 1;
-        product.details.initialStock = newStock; // update local product object
-
-        try {
-            const updatedDetails = { ...product.details, initialStock: newStock };
-            await fetch(`http://localhost:3000/${product.category}/${product.id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ details: updatedDetails })
-            });
-            updateProductStockDisplay(product);
-        } catch (error) {
-            console.error('Error decreasing stock:', error);
-        }
-    }
-}
-
-async function increaseStock(product) {
-    const newStock = product.details.initialStock + 1;
-    product.details.initialStock = newStock; // update local product object
-
-    try {
-        const updatedDetails = { ...product.details, initialStock: newStock };
-        await fetch(`http://localhost:3000/${product.category}/${product.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ details: updatedDetails })
-        });
-        updateProductStockDisplay(product);
-    } catch (error) {
-        console.error('Error increasing stock:', error);
-    }
-}
-
-function updateProductStockDisplay(product) {
-    const productElem = $(`.product-item[data-id="${product.id}"]`);
-    if (product.details.initialStock <= 0) {
-        productElem.addClass('out-of-stock');
-        if (productElem.find('.stock-info').length === 0) {
-            productElem.append('<span class="stock-info">Out of Stock</span>');
-        }
-        productElem.off('click');
-        productElem.attr('draggable', 'false');
-    } else {
-        productElem.removeClass('out-of-stock');
-        productElem.find('.stock-info').remove();
-    }
 }

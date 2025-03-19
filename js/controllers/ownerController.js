@@ -51,7 +51,7 @@ $(document).ready(function() {
         productList.empty();
 
         products.forEach(product => {
-            const stock = product.details.initialStock || 10;
+            const stock = product.details.initialStock;
             const isLowStock = stock <= LOW_STOCK_THRESHOLD;
             
             const productElement = $(`

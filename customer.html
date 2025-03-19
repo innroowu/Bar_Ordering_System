@@ -32,29 +32,31 @@
 
             <div class="search-filter">
                 <input type="text" id="productSearch" placeholder="Search products...">
-                
-                <div class="allergen-filter">
-                    <label>Allergen Filter:</label>
-                    <select id="allergenSelect" multiple>
-                        <option value="gluten">Gluten</option>
-                        <option value="nuts">Nuts</option>
-                        <option value="lactose">Lactose</option>
-                        <option value="sulfites">Sulfites</option>
-                        <option value="eggs">Eggs</option>
-                        <option value="fish">Fish</option>
-                        <option value="milk">Milk</option>
-                        <option value="coconut">Coconut</option>
-                    </select>
-                </div>
-
-                <div class="alcohol-filter">
-                    <label>Alcohol Content: <span id="alcoholValue">50%</span></label>
-                    <input type="range" id="alcoholRange" min="0" max="100" value="50">
-                </div>
-                
-                <div class="tannin-filter" id="tanninFilterContainer">
-                    <label>Tannin Level: <span id="tanninValue">5</span>/10</label>
-                    <input type="range" id="tanninRange" min="0" max="10" value="5">
+                <div class="filters-container">
+                    <div class="allergen-filter">
+                        <label>Allergen Filter:</label>
+                        <select id="allergenSelect" multiple>
+                            <option value="gluten">Gluten</option>
+                            <option value="nuts">Nuts</option>
+                            <option value="lactose">Lactose</option>
+                            <option value="sulfites">Sulfites</option>
+                            <option value="eggs">Eggs</option>
+                            <option value="fish">Fish</option>
+                            <option value="milk">Milk</option>
+                            <option value="coconut">Coconut</option>
+                        </select>
+                    </div>
+                    
+                    <div class="right-filters">
+                        <div class="alcohol-filter">
+                            <label>Alcohol Content: <span id="alcoholValue">50%</span></label>
+                            <input type="range" id="alcoholRange" min="0" max="100" value="50">
+                        </div>
+                        <div class="tannin-filter" id="tanninFilterContainer">
+                            <label>Tannin Level: <span id="tanninValue">5</span>/10</label>
+                            <input type="range" id="tanninRange" min="0" max="10" value="5">
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -70,12 +72,12 @@
         <div class="right-section">
             <!-- VIP login system -->
             <div class="vip-login">
-                <h3>VIP Login</h3>
+                <h3 id="vipLoginTitle">VIP Login</h3>
                 <input type="text" id="username" placeholder="Username">
                 <input type="password" id="password" placeholder="Password">
+                <div id="loginStatus"></div>
                 <button id="loginBtn">Login</button>
                 <button id="SpecialDBtn" style="display: none;">Special Drinks</button>
-                <div id="loginStatus"></div>
             </div>
 
             <!-- Order area -->
@@ -131,24 +133,6 @@
     <script>
         $(document).ready(function() {
             window.i18n.initLanguageSelector();
-            
-            // Category button highlighting
-            $('.category-buttons button').click(function() {
-                $('.category-buttons button').removeClass('active');
-                $(this).addClass('active');
-            });
-            
-            // Modal close button
-            $('.close').click(function() {
-                $(this).closest('.modal').hide();
-            });
-            
-            // Click outside modal to close
-            $('.modal').click(function(event) {
-                if ($(event.target).is('.modal')) {
-                    $(this).hide();
-                }
-            });
         });
     </script>
 </body>
