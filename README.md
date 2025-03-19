@@ -1,14 +1,14 @@
+# Bar_Ordering_System
+This repository is a project of the User Interface Programming course.
+
+It is more convenient to use the Live Server extension of Visual Studio Code to start the Bar Ordering System.
+
 ## Collaborators/Group members
 - Yin-Ju Wu
 - Yuxuan Niu
 - Rahul Reddy Tikkavarapu
 - Bernardo José Willis Lozano
 - Lan Xiao
-
-# Bar_Ordering_System
-This repository is a project of the User Interface Programming course.
-
-It is more convenient to use the Live Server extension of Visual Studio Code to start the Bar Ordering System.
 
 ## How to Run the Program
 
