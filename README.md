@@ -95,6 +95,39 @@ Mar 17: Adding the translation function
 Use of AI: During the development process, I occasionally used AI to help organize and simplify parts of the code, making the overall program clearer and easier to present.
 ```
 
+**Yuxuan Niu**$\downarrow$
+```
+Feb 22 - Feb 24: Creating initial framework and structure for web application (including basic functions).
+Feb 25: Establishing core component relationships.
+Mar 4 - Mar 6: Coding on VIP login function and displaying VIP balance.
+Mar 14 - Mar 16 : Designing and coding on index page and customer page interface.
+Mar 17- Mar 18: Preparing for presentation.
+Use of AI: Use AI (ChatGPT and Deepseek) as a debugging assistant, analyze the code logic, help with errors when it’s hard to debug, and clean up the code format.
+```
+
+**Lan Xiao**$\downarrow$
+```
+Feb 26 - Mar 4 Working on Niu’s original version, including VIP and normal customer functions and pages, before it gets replaced by the final version.
+Mar 5 - Mar 9 Adding VIP special drinks menu to Wu’s version.
+Mar 10 - Mar 12 Adding balance - related functions to Wu’s version.
+Mar 15 Adding an undo function to the VIP page.
+Mar 15 Attempted to integrate the backend with VIP functions.
+Mar 16 - Mar 17 Working with the team to ensure all functions perform well in our project.
+Mar 19 Attending the presentation via zoom.
+Use of AI: I use ChatGPT to combine the required features with those my group members have written on the same page and fix errors in the code.
+```
+
+**Bernardo José Willis Lozano**$\downarrow$
+```
+Feb 26: Investigate about JSON server to understand it.
+Mar 4: Restructured the JSON data files into one single db.json file and integrated JSON Server into the project.
+Mar 5 - Mar 10: Worked on the waiter/bartender site and connected the JSON Server to all three interfaces (customer, owner, and waiter/bartender).
+Mar 16: Connected the actions of the owner, customer, and waiter so that changes in one interface automatically reflect in the others. (for example, the owner changing a product price and the customer seeing it on the menu).
+Mar 17: Implemented responsive design techniques, ensuring the application works well in different screen sizes.
+Mar 18: Prepare for the presentation.
+Use of AI: I utilized AI assistance to help me integrate JSON Server into the project and to investigate a little bit about responsive design, which helped me a lot with the development process and improved the clarity of our code.
+```
+
 ## Additional Notes
 - **MVC Pattern:**  
   The project follows the Model-View-Controller (MVC) architecture by separating data handling (models), UI rendering (views), and event logic (controllers).
