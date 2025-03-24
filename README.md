@@ -82,6 +82,18 @@ Bar_Ordering_System
        └─ i18n.js
 ```
 
+## Time reporting for each member
+**Yin-Ju Wu**$\downarrow$
+```
+Feb 26: Using separate folders to split the initial program structure into the MVC pattern
+Mar 2 - Mar 5: Adding the drag-and-drop function in the customer interface
+Mar 8 - Mar 9: Developing the owner interface + initial structure for waiter pages
+Mar 10: Implementing the inventory alert feature in the owner interface + adding the responsive design
+Mar 16: Adding the redo function in the customer interface
+Mar 17: Adding the translation function
+Use of AI: During the development process, I occasionally used AI to help organize and simplify parts of the code, making the overall program clearer and easier to present.
+```
+
 ## Additional Notes
 - **MVC Pattern:**  
   The project follows the Model-View-Controller (MVC) architecture by separating data handling (models), UI rendering (views), and event logic (controllers).
@@ -93,4 +105,4 @@ Bar_Ordering_System
 - **Backend Simulation:**  
   Although the backend is simulated with JSON Server, the focus of this demo is on fulfilling the UI requirements as per the project specification.
 
-```
+
