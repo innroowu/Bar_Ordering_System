@@ -1,4 +1,4 @@
-# Bar_Ordering_System
+# Crossing the Equator : Bar Ordering System
 This repository is a project of the User Interface Programming course.
 
 It is more convenient to use the Live Server extension of Visual Studio Code to start the Bar Ordering System.
