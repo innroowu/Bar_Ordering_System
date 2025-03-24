@@ -46,6 +46,7 @@ It is more convenient to use the Live Server extension of Visual Studio Code to 
 ## File Organization
 ```
 Bar_Ordering_System
+    ├─ PirateLogo.png
     ├─ customer.html: customer ordering interface
     ├─ index.html: Initial page
     ├─ owner.html: owner interface
